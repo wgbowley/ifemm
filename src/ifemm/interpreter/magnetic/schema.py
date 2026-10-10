@@ -112,17 +112,17 @@ class MagneticData:
         )
 
         # Returns the X, Y and A spaces
-        return x_space, y_space, a_grid
+        return xi, yi, a_grid
 
     def b_field(self, resolution: int = 1000) -> tuple[Any, Any, Any, Any]:
         """ Returns the interpolated B field (Bx, By) from the vector potential A. """
-        x_space, y_space, a_grid = self.field_potential(resolution)
+        xi, yi, a_grid = self.field_potential(resolution)
 
         scale = self.length_scale
 
         # Compute gradients in SI metres
-        dx = (x_space[0, 1] - x_space[0, 0]) * scale
-        dy = (y_space[1, 0] - y_space[0, 0]) * scale
+        dx = (xi[1] - xi[0]) * scale
+        dy = (yi[1] - yi[0]) * scale
 
         da_dx = np_gradient(a_grid, dx, axis=1)
         da_dy = np_gradient(a_grid, dy, axis=0)
@@ -131,7 +131,7 @@ class MagneticData:
         bx = da_dy
         by = -da_dx
 
-        return x_space, y_space, bx, by
+        return xi, yi, bx, by
 
     def _load_circuits(self) -> None:
         """ Loads materials section from the solution """
