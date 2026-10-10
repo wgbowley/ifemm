@@ -68,6 +68,7 @@
     "numholes",
     "beginpoint",
     "ifemm",
-    "pylintrc"
+    "pylintrc",
+    "pyproject"
   ]
 }
