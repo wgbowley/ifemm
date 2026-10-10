@@ -41,4 +41,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Removed `point_b(x, y)` for now. As it needs to be reimplemented.
 
+[0.2.0-0.2.2] - 2026-09-25 - 2026-10-10
+
+### Fixed
+- Fixed b field calculations via using the scale in the FEMM solution file. 
+- PyPI | Fixed readme & pyproject.toml
+- Fixed return error for a-potential solution & b-field solutions via returning correct arrays.
+
 --- 

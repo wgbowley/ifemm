@@ -34,8 +34,8 @@ class Parser:
         file_type = path.suffix.lower()
 
         # Raises error for non supported file type
-        if file_type not in FILE_TYPES: raise FileTypeNotSupported(file_type)
-            # Raises error for non supported file type
+        if file_type not in FILE_TYPES:
+            raise FileTypeNotSupported(file_type)
 
         lines = cls._read_lines(filepath)
         data = ParseLines.parse(lines)
